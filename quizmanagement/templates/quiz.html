@@ -7,34 +7,26 @@
 <body> 
     <form method='post' action='result.html'>
     {% csrf_token %}
-    {% for q  in ques%}
+    {% for q in ques%}
     <div class="form-group">
-      <label for="question">{{q.question}}</label>
+      <label for={{q.question}}>{{q.quesno}}. {{ q.question }}</label>
     </div>
     <div class="form-check">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="q.a">
-            <label class="form-check-label" for="gridRadios1">
-                {{q.a}}
-            </label>
+        <div>
+            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.a }}">
+            <label for="{{q.question}}_{{q.quesno}}">{{q.a}}</label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="q.b">
-            <label class="form-check-label" for="gridRadios2">
-                {{q.b}}
-            </label>
+        <div>
+            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.b }}">
+            <label for="{{q.question}}_{{q.quesno}}">{{q.b}}</label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="q.c">
-            <label class="form-check-label" for="gridRadios1">
-                {{q.c}}
-            </label>
+        <div>
+            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.c }}">
+            <label for="{{q.question}}_{{q.quesno}}">{{q.c}}</label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="q.d">
-            <label class="form-check-label" for="gridRadios2">
-                {{q.d}}
-            </label>
+        <div>
+            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.d }}">
+            <label for="{{q.question}}_{{q.quesno}}">{{q.d}}</label>
         </div>
         <br>
     </div>    

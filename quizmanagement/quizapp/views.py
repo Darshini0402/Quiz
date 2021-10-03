@@ -32,31 +32,24 @@ def User(request):
     return render(request,'User.html')
 
 def result(request):
-    return render(request,'result.html')
-
-def Quiz(request):
     if request.method == 'POST':
             questions=quiz.objects.all()
             score,wrong,correct,total=0,0,0,0
             for q in questions:
-                if q.ans ==  request.POST.get('q.question'):
+                print(request.POST.get('question'),q.ans)
+                if q.ans ==  request.POST.get('question'):
                     score+=10
                     correct+=1
                 else:
                     wrong+=1
-            percent = score/(total*10) *100
             context = {
                 'score':score,
                 'correct':correct,
                 'wrong':wrong,
-                'percent':percent,
                 'total':total
             }
-            return render(request,'result.html',context)
-    else:
-        questions=quiz.objects.all()
-        context = {
-            'ques':questions
-        }
-    return render(request,'quiz.html',context)
+    return render(request,'result.html',context)
+
+def Quiz(request):
+    return render(request,'quiz.html',{"ques":quiz.objects.all()})
 
