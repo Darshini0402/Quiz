@@ -22,6 +22,7 @@ def login_view(request):
                 "message": "Invalid Credentials"
             })
     return render(request, "login.html")
+
 def logout_view(request):
     logout(request)
     return render(request, "login.html", {
