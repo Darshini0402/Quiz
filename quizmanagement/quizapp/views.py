@@ -33,47 +33,22 @@ def User(request):
     return render(request,'User.html')
 
 def result(request):
-    if request.method == 'POST':
-            questions=quiz.objects.all()
-            score,wrong,correct,total=0,0,0,0
-            for q in questions:
-                if q.quesno == 1:
-                    if q.ans ==  request.POST.get('1'):
-                        score+=10
-                        correct+=1
-                    else:
-                        wrong+=1
-                elif q.quesno == 2:
-                    if q.ans ==  request.POST.get('2'):
-                        score+=10
-                        correct+=1
-                    else:
-                        wrong+=1
-                if q.quesno == 3:
-                    if q.ans ==  request.POST.get('3'):
-                        score+=10
-                        correct+=1
-                    else:
-                        wrong+=1
-                if q.quesno == 4:
-                    if q.ans ==  request.POST.get('4'):
-                        score+=10
-                        correct+=1
-                    else:
-                        wrong+=1
-                if q.quesno == 5:
-                    if q.ans ==  request.POST.get('5'):
-                        score+=10
-                        correct+=1
-                    else:
-                        wrong+=1
-            context = {
+     if request.method == 'POST':
+        questions=quiz.objects.all()
+        score,wrong,correct,total=0,0,0,0
+        for q in questions:
+            if q.ans ==  request.POST.get(str(q.quesno)):
+                score+=10
+                correct+=1
+            else:
+                wrong+=1
+        context = {
                 'score':score,
                 'correct':correct,
                 'wrong':wrong,
                 'total':total
             }
-    return render(request,'result.html',context)
+        return render(request,'result.html',context)
 
 def Quiz(request):
     return render(request,'quiz.html',{"ques":quiz.objects.all()})
