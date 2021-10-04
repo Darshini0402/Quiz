@@ -3,36 +3,135 @@
 <html>
     <head>
         <title>Quiz</title>
+        <script>
+            function checkVal(form) {
+                for (var i = 1; i <= 4; i++) {
+                    document.getElementbyID(form[i].value);
+                     
+                }
+            }
+        </script>
     </head>   
 <body> 
     <form method='post' action='result.html'>
     {% csrf_token %}
     {% for q in ques%}
-    <div class="form-group">
-      <label for={{q.question}}>{{q.quesno}}. {{ q.question }}</label>
+    <div id="quizval">
+    {% if q.quesno == 1%}
+      <label for={{q.quesno}}>{{q.quesno}}. {{ q.question }}</label>
     </div>
     <div class="form-check">
         <div>
-            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.a }}">
-            <label for="{{q.question}}_{{q.quesno}}">{{q.a}}</label>
+            <input type="radio" name="1" id="{{q.quesno}}" value="{{ q.a }}">
+            <label for="{{q.quesno}}">{{q.a}}</label>
         </div>
         <div>
-            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.b }}">
-            <label for="{{q.question}}_{{q.quesno}}">{{q.b}}</label>
+            <input type="radio" name="1" id="{{q.quesno}}" value="{{ q.b }}">
+            <label for="{{q.quesno}}">{{q.b}}</label>
         </div>
         <div>
-            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.c }}">
-            <label for="{{q.question}}_{{q.quesno}}">{{q.c}}</label>
+            <input type="radio" name="1" id="{{q.quesno}}" value="{{ q.c }}">
+            <label for="{{q.quesno}}">{{q.c}}</label>
         </div>
         <div>
-            <input type="radio" name="{{q.question}}" id="{{q.question}}_{{q.quesno}}" value="{{ q.d }}">
-            <label for="{{q.question}}_{{q.quesno}}">{{q.d}}</label>
+            <input type="radio" name="1" id="{{q.quesno}}" value="{{ q.d }}">
+            <label for="{{q.quesno}}">{{q.d}}</label>
         </div>
         <br>
+    {% endif %}
+    {% if q.quesno == 2%}
+      <label for={{q.quesno}}>{{q.quesno}}. {{ q.question }}</label>
+    </div>
+    <div class="form-check">
+        <div>
+            <input type="radio" name="2" id="{{q.quesno}}" value="{{ q.a }}">
+            <label for="{{q.quesno}}">{{q.a}}</label>
+        </div>
+        <div>
+            <input type="radio" name="2" id="{{q.quesno}}" value="{{ q.b }}">
+            <label for="{{q.quesno}}">{{q.b}}</label>
+        </div>
+        <div>
+            <input type="radio" name="2" id="{{q.quesno}}" value="{{ q.c }}">
+            <label for="{{q.quesno}}">{{q.c}}</label>
+        </div>
+        <div>
+            <input type="radio" name="2" id="{{q.quesno}}" value="{{ q.d }}">
+            <label for="{{q.quesno}}">{{q.d}}</label>
+        </div>
+        <br>
+    {% endif %}
+    {% if q.quesno == 3%}
+      <label for={{q.quesno}}>{{q.quesno}}. {{ q.question }}</label>
+    </div>
+    <div class="form-check">
+        <div>
+            <input type="radio" name="3" id="{{q.quesno}}" value="{{ q.a }}">
+            <label for="{{q.quesno}}">{{q.a}}</label>
+        </div>
+        <div>
+            <input type="radio" name="3" id="{{q.quesno}}" value="{{ q.b }}">
+            <label for="{{q.quesno}}">{{q.b}}</label>
+        </div>
+        <div>
+            <input type="radio" name="3" id="{{q.quesno}}" value="{{ q.c }}">
+            <label for="{{q.quesno}}">{{q.c}}</label>
+        </div>
+        <div>
+            <input type="radio" name="3" id="{{q.quesno}}" value="{{ q.d }}">
+            <label for="{{q.quesno}}">{{q.d}}</label>
+        </div>
+        <br>
+    {% endif %}
+    {% if q.quesno == 4%}
+      <label for={{q.quesno}}>{{q.quesno}}. {{ q.question }}</label>
+    </div>
+    <div class="form-check">
+        <div>
+            <input type="radio" name="4" id="{{q.quesno}}" value="{{ q.a }}">
+            <label for="{{q.quesno}}">{{q.a}}</label>
+        </div>
+        <div>
+            <input type="radio" name="4" id="{{q.quesno}}" value="{{ q.b }}">
+            <label for="{{q.quesno}}">{{q.b}}</label>
+        </div>
+        <div>
+            <input type="radio" name="4" id="{{q.quesno}}" value="{{ q.c }}">
+            <label for="{{q.quesno}}">{{q.c}}</label>
+        </div>
+        <div>
+            <input type="radio" name="4" id="{{q.quesno}}" value="{{ q.d }}">
+            <label for="{{q.quesno}}">{{q.d}}</label>
+        </div>
+        <br>
+    {% endif %}
+    {% if q.quesno == 5%}
+      <label for={{q.quesno}}>{{q.quesno}}. {{ q.question }}</label>
+    </div>
+    <div class="form-check">
+        <div>
+            <input type="radio" name="5" id="{{q.quesno}}" value="{{ q.a }}">
+            <label for="{{q.quesno}}">{{q.a}}</label>
+        </div>
+        <div>
+            <input type="radio" name="5" id="{{q.quesno}}" value="{{ q.b }}">
+            <label for="{{q.quesno}}">{{q.b}}</label>
+        </div>
+        <div>
+            <input type="radio" name="5" id="{{q.quesno}}" value="{{ q.c }}">
+            <label for="{{q.quesno}}">{{q.c}}</label>
+        </div>
+        <div>
+            <input type="radio" name="5" id="{{q.quesno}}" value="{{ q.d }}">
+            <label for="{{q.quesno}}">{{q.d}}</label>
+        </div>
+        <br>
+    {% endif %}
     </div>    
     {% endfor %}
     <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" onClick="checkVal(this.form)">Submit</button>
+    
   </form>
     </body>
 </html>

@@ -36,12 +36,36 @@ def result(request):
             questions=quiz.objects.all()
             score,wrong,correct,total=0,0,0,0
             for q in questions:
-                print(request.POST.get('question'),q.ans)
-                if q.ans ==  request.POST.get('question'):
-                    score+=10
-                    correct+=1
-                else:
-                    wrong+=1
+                if q.quesno == 1:
+                    if q.ans ==  request.POST.get('1'):
+                        score+=10
+                        correct+=1
+                    else:
+                        wrong+=1
+                elif q.quesno == 2:
+                    if q.ans ==  request.POST.get('2'):
+                        score+=10
+                        correct+=1
+                    else:
+                        wrong+=1
+                if q.quesno == 3:
+                    if q.ans ==  request.POST.get('3'):
+                        score+=10
+                        correct+=1
+                    else:
+                        wrong+=1
+                if q.quesno == 4:
+                    if q.ans ==  request.POST.get('4'):
+                        score+=10
+                        correct+=1
+                    else:
+                        wrong+=1
+                if q.quesno == 5:
+                    if q.ans ==  request.POST.get('5'):
+                        score+=10
+                        correct+=1
+                    else:
+                        wrong+=1
             context = {
                 'score':score,
                 'correct':correct,
@@ -53,3 +77,22 @@ def result(request):
 def Quiz(request):
     return render(request,'quiz.html',{"ques":quiz.objects.all()})
 
+
+
+# <script>
+#         function displayRadioValue() {
+#             document.getElementById("quizval").innerHTML = "";
+#             var ele = document.getElementsByTagName('input');
+              
+#             for(i = 0; i < ele.length; i++) {
+                  
+#                 if(ele[i].type="radio") {
+                  
+#                     if(ele[i].checked)
+#                         document.getElementById("quizval").innerHTML
+#                                 += ele[i].name + " Value: "
+#                                 + ele[i].value + "<br>";
+#                 }
+#             }
+#         }
+#     </script>
